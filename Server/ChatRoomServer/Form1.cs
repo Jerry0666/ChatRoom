@@ -1,3 +1,5 @@
+using System.DirectoryServices.ActiveDirectory;
+using System.IO;
 using System.Net;
 using System.Net.Security;
 using System.Net.Sockets;
@@ -14,6 +16,26 @@ namespace ChatRoomServer
             InitializeComponent();
             UserDict = new Dictionary<string, ClientInfo>();
             RoomDict = new Dictionary<string, ChatRoom>();
+            // read file
+            try
+            {
+                using (StreamReader sr = new StreamReader("../../../../../User_password.txt"))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        string[] words = line.Split(" ");
+                        ClientInfo info = new ClientInfo();
+                        info.password = words[1];
+                        UserDict.Add(words[0], info);
+                        info.name = words[0];
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                UpdateStatus(e.ToString());
+            }
         }
 
         X509Certificate serverCertificate;
@@ -75,7 +97,7 @@ namespace ChatRoomServer
             catch (Exception e)
             {
                 UpdateStatus(e.ToString());
-                Thread.Sleep(20000);
+                Thread.Sleep(1000);
             }
             SslStream sslStream = new SslStream(stream, false);
 
@@ -125,6 +147,13 @@ namespace ChatRoomServer
                                 info.stream = stream;
                                 info.sslStream = sslStream;
                                 byte[] result = System.Text.Encoding.ASCII.GetBytes("register successfully");
+                                // write to file
+                                using (StreamWriter sw = File.AppendText("../../../../../User_password.txt"))
+                                {
+                                    sw.WriteLine(remain);
+                                    UpdateStatus("write password to file");
+                                }
+
                                 sslStream.Write(result);
                             }
                             break;
@@ -139,6 +168,7 @@ namespace ChatRoomServer
                                     byte[] result = System.Text.Encoding.ASCII.GetBytes("log in success");
                                     UserDict[words[0]].LoggedIn = true;
                                     clinetName = words[0];
+                                    UserDict[words[0]].sslStream = sslStream;
                                     sslStream.Write(result);
                                 }
                                 else
