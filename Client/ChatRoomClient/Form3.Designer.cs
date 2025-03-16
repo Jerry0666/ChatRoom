@@ -34,6 +34,14 @@
             BtnLeft = new Button();
             BtnListUsers = new Button();
             userlabel = new Label();
+            label1 = new Label();
+            PMessage = new TextBox();
+            label2 = new Label();
+            PName = new TextBox();
+            label3 = new Label();
+            singleMessage = new TextBox();
+            Psend = new Button();
+            UserName = new Label();
             SuspendLayout();
             // 
             // MessageWindow
@@ -94,11 +102,91 @@
             userlabel.Text = "Users:";
             userlabel.Click += label1_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(639, 41);
+            label1.Name = "label1";
+            label1.Size = new Size(168, 25);
+            label1.TabIndex = 6;
+            label1.Text = "Private message";
+            label1.Click += label1_Click_1;
+            // 
+            // PMessage
+            // 
+            PMessage.Location = new Point(639, 83);
+            PMessage.Multiline = true;
+            PMessage.Name = "PMessage";
+            PMessage.ScrollBars = ScrollBars.Vertical;
+            PMessage.Size = new Size(392, 321);
+            PMessage.TabIndex = 7;
+            PMessage.WordWrap = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(639, 434);
+            label2.Name = "label2";
+            label2.Size = new Size(42, 25);
+            label2.TabIndex = 8;
+            label2.Text = "To:";
+            // 
+            // PName
+            // 
+            PName.Location = new Point(706, 431);
+            PName.Name = "PName";
+            PName.Size = new Size(178, 33);
+            PName.TabIndex = 9;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(639, 485);
+            label3.Name = "label3";
+            label3.Size = new Size(100, 25);
+            label3.TabIndex = 10;
+            label3.Text = "message:";
+            // 
+            // singleMessage
+            // 
+            singleMessage.Location = new Point(643, 524);
+            singleMessage.Multiline = true;
+            singleMessage.Name = "singleMessage";
+            singleMessage.Size = new Size(388, 93);
+            singleMessage.TabIndex = 11;
+            // 
+            // Psend
+            // 
+            Psend.Location = new Point(915, 635);
+            Psend.Name = "Psend";
+            Psend.Size = new Size(105, 37);
+            Psend.TabIndex = 12;
+            Psend.Text = "send";
+            Psend.UseVisualStyleBackColor = true;
+            Psend.Click += Psend_Click;
+            // 
+            // UserName
+            // 
+            UserName.AutoSize = true;
+            UserName.Location = new Point(112, 18);
+            UserName.Name = "UserName";
+            UserName.Size = new Size(66, 25);
+            UserName.TabIndex = 13;
+            UserName.Text = "name";
+            // 
             // ChatRoom
             // 
             AutoScaleDimensions = new SizeF(12F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(593, 693);
+            ClientSize = new Size(1074, 693);
+            Controls.Add(UserName);
+            Controls.Add(Psend);
+            Controls.Add(singleMessage);
+            Controls.Add(label3);
+            Controls.Add(PName);
+            Controls.Add(label2);
+            Controls.Add(PMessage);
+            Controls.Add(label1);
             Controls.Add(userlabel);
             Controls.Add(BtnListUsers);
             Controls.Add(BtnLeft);
@@ -122,5 +210,13 @@
         private Button BtnLeft;
         private Button BtnListUsers;
         private Label userlabel;
+        private Label label1;
+        private TextBox PMessage;
+        private Label label2;
+        private TextBox PName;
+        private Label label3;
+        private TextBox singleMessage;
+        private Button Psend;
+        private Label UserName;
     }
 }

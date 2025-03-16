@@ -15,12 +15,14 @@ namespace ChatRoomClient
     public partial class Form2 : Form
     {
         public SslStream stream;
-        public Form2(SslStream s)
+        public string name;
+        public Form2(SslStream s, string name)
         {
             InitializeComponent();
             stream = s;
             byte[] btData = System.Text.Encoding.ASCII.GetBytes("form2 created!");
             stream.Write(btData);
+            this.name = name;
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -43,15 +45,15 @@ namespace ChatRoomClient
             if (String.Compare(prefix, "[Success]") == 0)
             {
                 // enter chat room
-                Thread enterRoom = new Thread(() => createChatRoom(stream));
+                Thread enterRoom = new Thread(() => createChatRoom(stream, name));
                 enterRoom.Start();
                 Close();
             }
         }
 
-        private void createChatRoom(SslStream stream)
+        private void createChatRoom(SslStream stream,string name)
         {
-            ChatRoom chatRoom = new ChatRoom(stream);
+            ChatRoom chatRoom = new ChatRoom(stream,name);
             chatRoom.ShowDialog();
         }
 

@@ -138,9 +138,9 @@ namespace ChatRoomClient
             }
         }
 
-        private void createForm2(SslStream s)
+        private void createForm2(SslStream s,string name)
         {
-            Form2 f = new Form2(s);
+            Form2 f = new Form2(s, txtName.Text);
             f.ShowDialog();
         }
 
@@ -156,7 +156,7 @@ namespace ChatRoomClient
                 PromptLabel.Text = "You need to log in first.";
                 return;
             }
-            Thread enter = new Thread(() => createForm2(sslStream));
+            Thread enter = new Thread(() => createForm2(sslStream, txtName.Text));
             enter.Start();
         }
 

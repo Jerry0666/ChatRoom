@@ -18,13 +18,16 @@ namespace ChatRoomClient
         public SslStream stream;
         public string RoomName;
         public bool close;
+        public string name;
 
         private delegate void delUpdateUI(string sMessage);
-        public ChatRoom(SslStream s)
+        public ChatRoom(SslStream s,string name)
         {
             InitializeComponent();
             // start the listen thread
             this.stream = s;
+            this.name = name;
+            UserName.Text = name;
             close = false;
             Thread listen = new Thread(() => LogChatRoomMessage());
             listen.Start();
@@ -72,18 +75,23 @@ namespace ChatRoomClient
                         continue;
                     }
                 }
-                
+
                 string sData;
                 sData = System.Text.Encoding.ASCII.GetString(btDatas, 0, len);
                 string action = sData.Substring(0, 6);
                 sData = sData.Substring(6);
-                if (String.Compare(action, "[info]") == 0)
+                switch (action)
                 {
-                    updateMessage(sData);
-                }
-                if (String.Compare(action, "[user]") == 0)
-                {
-                    ListUser(sData);
+                    case "[info]":
+                        updateMessage(sData);
+                        break;
+                    case "[user]":
+                        ListUser(sData);
+                        break;
+                    case "[psen]":
+                        updatePMessage(sData);
+                        break;
+
                 }
             }
         }
@@ -115,6 +123,19 @@ namespace ChatRoomClient
             }
         }
 
+        private void updatePMessage(string message)
+        {
+            if (this.InvokeRequired)
+            {
+                delUpdateUI del = new delUpdateUI(updatePMessage);
+                this.Invoke(del, message);
+            }
+            else
+            {
+                PMessage.Text += message;
+            }
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -137,6 +158,24 @@ namespace ChatRoomClient
             Thread.Sleep(1000);
             Close();
             this.Dispose();
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Psend_Click(object sender, EventArgs e)
+        {
+            string SendStr = "[pse]";
+            SendStr += PName.Text;
+            SendStr += " ";
+            SendStr += singleMessage.Text;
+            ListUser(SendStr);
+            byte[] btData = System.Text.Encoding.ASCII.GetBytes(SendStr);
+            stream.Write(btData);
+
+
         }
     }
 }

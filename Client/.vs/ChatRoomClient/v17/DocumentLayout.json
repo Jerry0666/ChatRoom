@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\\u5F35\u54F2\u777F\\Desktop\\ChatRoom\\Client\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{56DCCC6B-A7A9-4A9B-B9FF-AC9DDDBB08C2}|ChatRoomClient\\ChatRoomClient.csproj|c:\\users\\\u5F35\u54F2\u777F\\desktop\\chatroom\\client\\chatroomclient\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56DCCC6B-A7A9-4A9B-B9FF-AC9DDDBB08C2}|ChatRoomClient\\ChatRoomClient.csproj|solutionrelative:chatroomclient\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{56DCCC6B-A7A9-4A9B-B9FF-AC9DDDBB08C2}|ChatRoomClient\\ChatRoomClient.csproj|c:\\users\\\u5F35\u54F2\u777F\\desktop\\chatroom\\client\\chatroomclient\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56DCCC6B-A7A9-4A9B-B9FF-AC9DDDBB08C2}|ChatRoomClient\\ChatRoomClient.csproj|solutionrelative:chatroomclient\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56DCCC6B-A7A9-4A9B-B9FF-AC9DDDBB08C2}|ChatRoomClient\\ChatRoomClient.csproj|C:\\Users\\\u5F35\u54F2\u777F\\Desktop\\ChatRoom\\Client\\chatroomclient\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{56DCCC6B-A7A9-4A9B-B9FF-AC9DDDBB08C2}|ChatRoomClient\\ChatRoomClient.csproj|solutionrelative:chatroomclient\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{56DCCC6B-A7A9-4A9B-B9FF-AC9DDDBB08C2}|ChatRoomClient\\ChatRoomClient.csproj|c:\\users\\\u5F35\u54F2\u777F\\desktop\\chatroom\\client\\chatroomclient\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,6 +13,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{56DCCC6B-A7A9-4A9B-B9FF-AC9DDDBB08C2}|ChatRoomClient\\ChatRoomClient.csproj|C:\\Users\\\u5F35\u54F2\u777F\\Desktop\\ChatRoom\\Client\\chatroomclient\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{56DCCC6B-A7A9-4A9B-B9FF-AC9DDDBB08C2}|ChatRoomClient\\ChatRoomClient.csproj|solutionrelative:chatroomclient\\form3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56DCCC6B-A7A9-4A9B-B9FF-AC9DDDBB08C2}|ChatRoomClient\\ChatRoomClient.csproj|C:\\Users\\\u5F35\u54F2\u777F\\Desktop\\ChatRoom\\Client\\chatroomclient\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{56DCCC6B-A7A9-4A9B-B9FF-AC9DDDBB08C2}|ChatRoomClient\\ChatRoomClient.csproj|solutionrelative:chatroomclient\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56DCCC6B-A7A9-4A9B-B9FF-AC9DDDBB08C2}|ChatRoomClient\\ChatRoomClient.csproj|c:\\users\\\u5F35\u54F2\u777F\\desktop\\chatroom\\client\\chatroomclient\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56DCCC6B-A7A9-4A9B-B9FF-AC9DDDBB08C2}|ChatRoomClient\\ChatRoomClient.csproj|solutionrelative:chatroomclient\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{56DCCC6B-A7A9-4A9B-B9FF-AC9DDDBB08C2}|ChatRoomClient\\ChatRoomClient.csproj|C:\\Users\\\u5F35\u54F2\u777F\\Desktop\\ChatRoom\\Client\\chatroomclient\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,61 +42,63 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Form3.cs",
               "DocumentMoniker": "C:\\Users\\\u5F35\u54F2\u777F\\Desktop\\ChatRoom\\Client\\ChatRoomClient\\Form3.cs",
               "RelativeDocumentMoniker": "ChatRoomClient\\Form3.cs",
               "ToolTip": "C:\\Users\\\u5F35\u54F2\u777F\\Desktop\\ChatRoom\\Client\\ChatRoomClient\\Form3.cs",
               "RelativeToolTip": "ChatRoomClient\\Form3.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAqwBkAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-16T12:11:37.128Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Form3.cs [\u8A2D\u8A08]",
               "DocumentMoniker": "C:\\Users\\\u5F35\u54F2\u777F\\Desktop\\ChatRoom\\Client\\ChatRoomClient\\Form3.cs",
               "RelativeDocumentMoniker": "ChatRoomClient\\Form3.cs",
               "ToolTip": "C:\\Users\\\u5F35\u54F2\u777F\\Desktop\\ChatRoom\\Client\\ChatRoomClient\\Form3.cs [\u8A2D\u8A08]",
               "RelativeToolTip": "ChatRoomClient\\Form3.cs [\u8A2D\u8A08]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T12:11:08.443Z"
+              "WhenOpened": "2025-03-16T12:11:08.443Z",
+              "EditorCaption": " [\u8A2D\u8A08]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form2.cs",
               "DocumentMoniker": "C:\\Users\\\u5F35\u54F2\u777F\\Desktop\\ChatRoom\\Client\\ChatRoomClient\\Form2.cs",
               "RelativeDocumentMoniker": "ChatRoomClient\\Form2.cs",
               "ToolTip": "C:\\Users\\\u5F35\u54F2\u777F\\Desktop\\ChatRoom\\Client\\ChatRoomClient\\Form2.cs",
               "RelativeToolTip": "ChatRoomClient\\Form2.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwCYAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAkwC8AAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-16T12:10:09.564Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Form2.cs [\u8A2D\u8A08]",
               "DocumentMoniker": "C:\\Users\\\u5F35\u54F2\u777F\\Desktop\\ChatRoom\\Client\\ChatRoomClient\\Form2.cs",
               "RelativeDocumentMoniker": "ChatRoomClient\\Form2.cs",
               "ToolTip": "C:\\Users\\\u5F35\u54F2\u777F\\Desktop\\ChatRoom\\Client\\ChatRoomClient\\Form2.cs [\u8A2D\u8A08]",
               "RelativeToolTip": "ChatRoomClient\\Form2.cs [\u8A2D\u8A08]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T12:10:01.077Z"
+              "WhenOpened": "2025-03-16T12:10:01.077Z",
+              "EditorCaption": " [\u8A2D\u8A08]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\\u5F35\u54F2\u777F\\Desktop\\ChatRoom\\Client\\ChatRoomClient\\Form1.cs",
               "RelativeDocumentMoniker": "ChatRoomClient\\Form1.cs",
               "ToolTip": "C:\\Users\\\u5F35\u54F2\u777F\\Desktop\\ChatRoom\\Client\\ChatRoomClient\\Form1.cs",
               "RelativeToolTip": "ChatRoomClient\\Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF4AAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAQwI4AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-16T10:44:54.116Z",
               "EditorCaption": ""
@@ -110,7 +112,8 @@
               "ToolTip": "C:\\Users\\\u5F35\u54F2\u777F\\Desktop\\ChatRoom\\Client\\ChatRoomClient\\Form1.cs [\u8A2D\u8A08]",
               "RelativeToolTip": "ChatRoomClient\\Form1.cs [\u8A2D\u8A08]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T06:55:16.057Z"
+              "WhenOpened": "2025-03-16T06:55:16.057Z",
+              "EditorCaption": " [\u8A2D\u8A08]"
             }
           ]
         }

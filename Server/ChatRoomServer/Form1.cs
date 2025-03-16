@@ -5,6 +5,7 @@ using System.Net.Security;
 using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Xml.Linq;
 
 namespace ChatRoomServer
 {
@@ -129,6 +130,7 @@ namespace ChatRoomServer
                     string remain = sData.Substring(5);
                     string[] words = remain.Split(" ");
                     byte[] messByte;
+                    string message;
                     switch (action)
                     {
                         case "[reg]":
@@ -216,7 +218,7 @@ namespace ChatRoomServer
                         case "[sen]":
                             // find the chat room
                             string rName = UserDict[clinetName].roomName;
-                            string message = "";
+                            message = "";
                             message += "[info]";
                             message += clinetName;
                             message += "(Me):";
@@ -255,6 +257,26 @@ namespace ChatRoomServer
                             sslStream.Write(messByte);
                             break;
 
+                        case "[pse]":
+                            UpdateStatus("in the case [pse]");
+                            foreach (string s in RoomDict[roomName].Users)
+                            {
+                                if (String.Compare(s, words[0]) == 0)
+                                {
+                                    message = "";
+                                    message += "[psen]";
+                                    message += clinetName;
+                                    message += ":";
+                                    message += remain.Substring(words[0].Length + 1);
+                                    message += Environment.NewLine;
+                                    UpdateStatus(message);
+                                    messByte = System.Text.Encoding.ASCII.GetBytes(message);
+                                    UserDict[s].sslStream.Write(messByte);
+                                    break;
+                                }
+                            }
+                            break;
+
                         case "[lur]":
                             string alluser = "[user]";
                             WriteSomething(InfoBox, roomName);
@@ -280,7 +302,7 @@ namespace ChatRoomServer
                 {
                     UpdateStatus("read exception:" + e.Message);
                     client.Close();
-                    Thread.Sleep(5000);
+                    Thread.Sleep(1000);
                     break;
                 }
             }
