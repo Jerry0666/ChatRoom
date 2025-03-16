@@ -1,5 +1,7 @@
 using System.Net;
+using System.Net.Security;
 using System.Net.Sockets;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace ChatRoomServer
@@ -14,6 +16,7 @@ namespace ChatRoomServer
             RoomDict = new Dictionary<string, ChatRoom>();
         }
 
+        X509Certificate serverCertificate;
         private delegate void delUpdateUI(string sMessage);
         private delegate void delWriteTextBox(TextBox t, string s);
 
@@ -62,6 +65,31 @@ namespace ChatRoomServer
         private void ClientThread(TcpClient client)
         {
             NetworkStream stream = client.GetStream();
+            // ssl 
+            X509Certificate serverCertificate = null;
+
+            try
+            {
+                serverCertificate = new X509Certificate2("../../../../../certificate.pfx", "1234");
+            }
+            catch (Exception e)
+            {
+                UpdateStatus(e.ToString());
+                Thread.Sleep(20000);
+            }
+            SslStream sslStream = new SslStream(stream, false);
+
+            try
+            {
+                sslStream.AuthenticateAsServer(serverCertificate, clientCertificateRequired: false, checkCertificateRevocation: true);
+            }
+            catch (Exception e)
+            {
+                WriteSomething(InfoBox, e.ToString());
+                UpdateStatus(e.ToString());
+                Thread.Sleep(20000);
+            }
+
             byte[] btDatas = new byte[512];
             string sData;
             WriteSomething(InfoBox, "InClientThread");
@@ -71,7 +99,7 @@ namespace ChatRoomServer
             {
                 try
                 {
-                    int len = stream.Read(btDatas, 0, btDatas.Length);
+                    int len = sslStream.Read(btDatas, 0, btDatas.Length);
                     sData = System.Text.Encoding.ASCII.GetString(btDatas, 0, len);
                     WriteSomething(InfoBox, sData);
                     string action;
@@ -95,8 +123,9 @@ namespace ChatRoomServer
                                 UserDict.Add(words[0], info);
                                 info.name = words[0];
                                 info.stream = stream;
+                                info.sslStream = sslStream;
                                 byte[] result = System.Text.Encoding.ASCII.GetBytes("register successfully");
-                                stream.Write(result);
+                                sslStream.Write(result);
                             }
                             break;
                         case "[log]":
@@ -110,18 +139,18 @@ namespace ChatRoomServer
                                     byte[] result = System.Text.Encoding.ASCII.GetBytes("log in success");
                                     UserDict[words[0]].LoggedIn = true;
                                     clinetName = words[0];
-                                    stream.Write(result);
+                                    sslStream.Write(result);
                                 }
                                 else
                                 {
                                     byte[] result = System.Text.Encoding.ASCII.GetBytes("Wrong password");
-                                    stream.Write(result);
+                                    sslStream.Write(result);
                                 }
                             }
                             else
                             {
                                 byte[] result = System.Text.Encoding.ASCII.GetBytes("Wrong password");
-                                stream.Write(result);
+                                sslStream.Write(result);
                             }
                             break;
                         case "[ent]":
@@ -131,7 +160,7 @@ namespace ChatRoomServer
                                 // push user into the room list
                                 RoomDict[roomName].Users.Add(clinetName);
                                 byte[] result = System.Text.Encoding.ASCII.GetBytes("[Success] Room exist, come into the room.");
-                                stream.Write(result);
+                                sslStream.Write(result);
                                 UserDict[clinetName].roomName = roomName;
                             }
                             else
@@ -149,7 +178,7 @@ namespace ChatRoomServer
                                 }
                                 RoomDict.Add(roomName, room);
                                 byte[] result = System.Text.Encoding.ASCII.GetBytes("[Success] Room not exist, create one.");
-                                stream.Write(result);
+                                sslStream.Write(result);
                                 WriteSomething(InfoBox, "stream write");
                                 UserDict[clinetName].roomName = roomName;
                             }
@@ -164,7 +193,7 @@ namespace ChatRoomServer
                             message += remain;
                             message += Environment.NewLine;
                             messByte = System.Text.Encoding.ASCII.GetBytes(message);
-                            stream.Write(messByte);
+                            sslStream.Write(messByte);
                             // Write to all member in the caht room.
                             foreach (string s in RoomDict[rName].Users)
                             {
@@ -177,7 +206,7 @@ namespace ChatRoomServer
                                     mess += remain;
                                     mess += Environment.NewLine;
                                     byte[] messBy = System.Text.Encoding.ASCII.GetBytes(mess);
-                                    UserDict[s].stream.Write(messBy);
+                                    UserDict[s].sslStream.Write(messBy);
                                 }
                             }
                             break;
@@ -193,7 +222,7 @@ namespace ChatRoomServer
                                 allroom += "no room!";
                             }
                             messByte = System.Text.Encoding.ASCII.GetBytes(allroom);
-                            stream.Write(messByte);
+                            sslStream.Write(messByte);
                             break;
 
                         case "[lur]":
@@ -205,7 +234,7 @@ namespace ChatRoomServer
                                 alluser += ", ";
                             }
                             messByte = System.Text.Encoding.ASCII.GetBytes(alluser);
-                            stream.Write(messByte);
+                            sslStream.Write(messByte);
                             break;
                         case "[exi]":
                             RoomDict[roomName].Users.Remove(clinetName);
@@ -221,6 +250,7 @@ namespace ChatRoomServer
                 {
                     UpdateStatus("read exception:" + e.Message);
                     client.Close();
+                    Thread.Sleep(5000);
                     break;
                 }
             }
@@ -300,6 +330,7 @@ class ClientInfo
     public bool LoggedIn = false;
     public string roomName = "";
     public NetworkStream stream;
+    public SslStream sslStream;
 }
 
 class ChatRoom

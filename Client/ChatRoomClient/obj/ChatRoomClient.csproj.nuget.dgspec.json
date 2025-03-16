@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\張哲睿\\Desktop\\ChatRoomServer\\Client\\ChatRoomClient\\ChatRoomClient.csproj": {}
+    "C:\\Users\\張哲睿\\Desktop\\ChatRoom\\Client\\ChatRoomClient\\ChatRoomClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\張哲睿\\Desktop\\ChatRoomServer\\Client\\ChatRoomClient\\ChatRoomClient.csproj": {
+    "C:\\Users\\張哲睿\\Desktop\\ChatRoom\\Client\\ChatRoomClient\\ChatRoomClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\張哲睿\\Desktop\\ChatRoomServer\\Client\\ChatRoomClient\\ChatRoomClient.csproj",
+        "projectUniqueName": "C:\\Users\\張哲睿\\Desktop\\ChatRoom\\Client\\ChatRoomClient\\ChatRoomClient.csproj",
         "projectName": "ChatRoomClient",
-        "projectPath": "C:\\Users\\張哲睿\\Desktop\\ChatRoomServer\\Client\\ChatRoomClient\\ChatRoomClient.csproj",
+        "projectPath": "C:\\Users\\張哲睿\\Desktop\\ChatRoom\\Client\\ChatRoomClient\\ChatRoomClient.csproj",
         "packagesPath": "C:\\Users\\張哲睿\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\張哲睿\\Desktop\\ChatRoomServer\\Client\\ChatRoomClient\\obj\\",
+        "outputPath": "C:\\Users\\張哲睿\\Desktop\\ChatRoom\\Client\\ChatRoomClient\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

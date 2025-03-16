@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Security;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +14,8 @@ namespace ChatRoomClient
 {
     public partial class Form2 : Form
     {
-        public NetworkStream stream;
-        public Form2(NetworkStream s)
+        public SslStream stream;
+        public Form2(SslStream s)
         {
             InitializeComponent();
             stream = s;
@@ -48,7 +49,7 @@ namespace ChatRoomClient
             }
         }
 
-        private void createChatRoom(NetworkStream stream)
+        private void createChatRoom(SslStream stream)
         {
             ChatRoom chatRoom = new ChatRoom(stream);
             chatRoom.ShowDialog();

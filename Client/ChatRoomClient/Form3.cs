@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Security;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,12 +15,12 @@ namespace ChatRoomClient
 
     public partial class ChatRoom : Form
     {
-        public NetworkStream stream;
+        public SslStream stream;
         public string RoomName;
         public bool close;
 
         private delegate void delUpdateUI(string sMessage);
-        public ChatRoom(NetworkStream s)
+        public ChatRoom(SslStream s)
         {
             InitializeComponent();
             // start the listen thread

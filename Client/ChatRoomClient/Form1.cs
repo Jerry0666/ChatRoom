@@ -1,6 +1,8 @@
 using Microsoft.Win32;
 using System.Net;
+using System.Net.Security;
 using System.Net.Sockets;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Channels;
 
@@ -20,6 +22,7 @@ namespace ChatRoomClient
         private TcpClient m_client;
         NetworkStream stream;
         private RegState state;
+        SslStream sslStream;
 
         public LogInForm()
         {
@@ -39,16 +42,29 @@ namespace ChatRoomClient
                 UpdateStatus("connected");
                 state = RegState.Connected;
                 stream = m_client.GetStream();
+                // ssl stream
+                sslStream = new SslStream(stream, false, new RemoteCertificateValidationCallback(ValidateServerCertificate));
+                sslStream.AuthenticateAsClient("127.0.0.1");
             }
-            catch (ArgumentNullException a)
+            catch (Exception ex)
             {
-                Console.WriteLine("ArgumentNullException:{0}", a);
-                UpdateStatus("ArgumentNullException");
+                UpdateStatus(ex.ToString());
             }
-            catch (SocketException ex)
+            
+        }
+
+        public static bool ValidateServerCertificate(
+        object sender,
+        X509Certificate certificate,
+        X509Chain chain,
+        SslPolicyErrors sslPolicyErrors)
+        {
+            X509Certificate storedCert = new X509Certificate("../../../../../certificate.pfx","1234");
+            if (certificate.Equals(storedCert))
             {
-                UpdateStatus("SocketException: " + ex.Message);
+                return true;
             }
+            return false;
         }
 
         private void UpdateStatus(string sStatus)
@@ -72,9 +88,18 @@ namespace ChatRoomClient
                 sendData += password;
                 sendData += " ";
                 byte[] btData = System.Text.Encoding.ASCII.GetBytes(sendData);
-                stream.Write(btData, 0, btData.Length);
+                sslStream.Write(btData, 0, btData.Length);
                 byte[] returnDatas = new byte[512];
-                int len = stream.Read(returnDatas, 0, returnDatas.Length);
+                int len;
+                try
+                {
+                    len = sslStream.Read(returnDatas, 0, returnDatas.Length);
+                }
+                catch (Exception ex)
+                {
+                    UpdateStatus(ex.ToString());
+                }
+                
                 string result = System.Text.Encoding.ASCII.GetString(returnDatas);
                 if (String.Compare(result, "register successfully") == 0)
                 {
@@ -100,20 +125,20 @@ namespace ChatRoomClient
                 sendData += password;
                 sendData += " ";
                 byte[] btData = System.Text.Encoding.ASCII.GetBytes(sendData);
-                stream.Write(btData, 0, btData.Length);
+                sslStream.Write(btData, 0, btData.Length);
                 byte[] returnDatas = new byte[512];
-                int len = stream.Read(returnDatas, 0, returnDatas.Length);
+                int len = sslStream.Read(returnDatas, 0, returnDatas.Length);
                 string result = System.Text.Encoding.ASCII.GetString(returnDatas);
                 PromptLabel.Text = result;
                 if (String.Compare(result, "log in success") == 0)
                 {
                     state = RegState.LoggedIn;
-                    PromptLabel.Text = "modify state";
+                    PromptLabel.Text = "log in success";
                 }
             }
         }
 
-        private void createForm2(NetworkStream s)
+        private void createForm2(SslStream s)
         {
             Form2 f = new Form2(s);
             f.ShowDialog();
@@ -131,7 +156,7 @@ namespace ChatRoomClient
                 PromptLabel.Text = "You need to log in first.";
                 return;
             }
-            Thread enter = new Thread(() => createForm2(stream));
+            Thread enter = new Thread(() => createForm2(sslStream));
             enter.Start();
         }
 
@@ -139,7 +164,7 @@ namespace ChatRoomClient
         {
             String SendStr = "[out]";
             byte[] btData = System.Text.Encoding.ASCII.GetBytes(SendStr);
-            stream.Write(btData);
+            sslStream.Write(btData);
             this.Dispose();
             Close();
         }
