@@ -1,0 +1,33 @@
+C:\Users\張哲睿\Desktop\learn C#\ChatRoomServer\ChatRoomServer\bin\Debug\net8.0-windows\ChatRoomServer.exe
+C:\Users\張哲睿\Desktop\learn C#\ChatRoomServer\ChatRoomServer\bin\Debug\net8.0-windows\ChatRoomServer.deps.json
+C:\Users\張哲睿\Desktop\learn C#\ChatRoomServer\ChatRoomServer\bin\Debug\net8.0-windows\ChatRoomServer.runtimeconfig.json
+C:\Users\張哲睿\Desktop\learn C#\ChatRoomServer\ChatRoomServer\bin\Debug\net8.0-windows\ChatRoomServer.dll
+C:\Users\張哲睿\Desktop\learn C#\ChatRoomServer\ChatRoomServer\bin\Debug\net8.0-windows\ChatRoomServer.pdb
+C:\Users\張哲睿\Desktop\learn C#\ChatRoomServer\ChatRoomServer\obj\Debug\net8.0-windows\ChatRoomServer.csproj.GenerateResource.cache
+C:\Users\張哲睿\Desktop\learn C#\ChatRoomServer\ChatRoomServer\obj\Debug\net8.0-windows\ChatRoomServer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\張哲睿\Desktop\learn C#\ChatRoomServer\ChatRoomServer\obj\Debug\net8.0-windows\ChatRoomServer.AssemblyInfoInputs.cache
+C:\Users\張哲睿\Desktop\learn C#\ChatRoomServer\ChatRoomServer\obj\Debug\net8.0-windows\ChatRoomServer.AssemblyInfo.cs
+C:\Users\張哲睿\Desktop\learn C#\ChatRoomServer\ChatRoomServer\obj\Debug\net8.0-windows\ChatRoomServer.csproj.CoreCompileInputs.cache
+C:\Users\張哲睿\Desktop\learn C#\ChatRoomServer\ChatRoomServer\obj\Debug\net8.0-windows\ChatRoomServer.dll
+C:\Users\張哲睿\Desktop\learn C#\ChatRoomServer\ChatRoomServer\obj\Debug\net8.0-windows\refint\ChatRoomServer.dll
+C:\Users\張哲睿\Desktop\learn C#\ChatRoomServer\ChatRoomServer\obj\Debug\net8.0-windows\ChatRoomServer.pdb
+C:\Users\張哲睿\Desktop\learn C#\ChatRoomServer\ChatRoomServer\obj\Debug\net8.0-windows\ChatRoomServer.genruntimeconfig.cache
+C:\Users\張哲睿\Desktop\learn C#\ChatRoomServer\ChatRoomServer\obj\Debug\net8.0-windows\ref\ChatRoomServer.dll
+C:\Users\張哲睿\Desktop\learn C#\ChatRoomServer\ChatRoomServer\obj\Debug\net8.0-windows\ChatRoomServer.Server.resources
+C:\Users\張哲睿\Desktop\ChatRoomServer\Server\ChatRoomServer\bin\Debug\net8.0-windows\ChatRoomServer.exe
+C:\Users\張哲睿\Desktop\ChatRoomServer\Server\ChatRoomServer\bin\Debug\net8.0-windows\ChatRoomServer.deps.json
+C:\Users\張哲睿\Desktop\ChatRoomServer\Server\ChatRoomServer\bin\Debug\net8.0-windows\ChatRoomServer.runtimeconfig.json
+C:\Users\張哲睿\Desktop\ChatRoomServer\Server\ChatRoomServer\bin\Debug\net8.0-windows\ChatRoomServer.dll
+C:\Users\張哲睿\Desktop\ChatRoomServer\Server\ChatRoomServer\bin\Debug\net8.0-windows\ChatRoomServer.pdb
+C:\Users\張哲睿\Desktop\ChatRoomServer\Server\ChatRoomServer\obj\Debug\net8.0-windows\ChatRoomServer.Server.resources
+C:\Users\張哲睿\Desktop\ChatRoomServer\Server\ChatRoomServer\obj\Debug\net8.0-windows\ChatRoomServer.csproj.GenerateResource.cache
+C:\Users\張哲睿\Desktop\ChatRoomServer\Server\ChatRoomServer\obj\Debug\net8.0-windows\ChatRoomServer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\張哲睿\Desktop\ChatRoomServer\Server\ChatRoomServer\obj\Debug\net8.0-windows\ChatRoomServer.AssemblyInfoInputs.cache
+C:\Users\張哲睿\Desktop\ChatRoomServer\Server\ChatRoomServer\obj\Debug\net8.0-windows\ChatRoomServer.AssemblyInfo.cs
+C:\Users\張哲睿\Desktop\ChatRoomServer\Server\ChatRoomServer\obj\Debug\net8.0-windows\ChatRoomServer.csproj.CoreCompileInputs.cache
+C:\Users\張哲睿\Desktop\ChatRoomServer\Server\ChatRoomServer\obj\Debug\net8.0-windows\ChatRoomServer.sourcelink.json
+C:\Users\張哲睿\Desktop\ChatRoomServer\Server\ChatRoomServer\obj\Debug\net8.0-windows\ChatRoomServer.dll
+C:\Users\張哲睿\Desktop\ChatRoomServer\Server\ChatRoomServer\obj\Debug\net8.0-windows\refint\ChatRoomServer.dll
+C:\Users\張哲睿\Desktop\ChatRoomServer\Server\ChatRoomServer\obj\Debug\net8.0-windows\ChatRoomServer.pdb
+C:\Users\張哲睿\Desktop\ChatRoomServer\Server\ChatRoomServer\obj\Debug\net8.0-windows\ChatRoomServer.genruntimeconfig.cache
+C:\Users\張哲睿\Desktop\ChatRoomServer\Server\ChatRoomServer\obj\Debug\net8.0-windows\ref\ChatRoomServer.dll
